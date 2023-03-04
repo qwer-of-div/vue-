@@ -1,18 +1,112 @@
+// format数据
+    formatData (item, row) {
+      let res = '--'
+      if(item.options) {
+       for(let it of item.options) {
+          if(it.value === row[item.value]) res = it.label;
+       }
+      } else {
+        res = row[item.value] || '--';
+      }
+      return res
+    },
 
-tree-props
-id不能为0
-https://blog.csdn.net/qq_45934504/article/details/123462736
-https://blog.csdn.net/weixin_43825727/article/details/117198306
-https://blog.csdn.net/IS_huang/article/details/111632910
-https://www.cnblogs.com/zwh0910/p/15638801.html
-https://blog.csdn.net/xy13983447577/article/details/122198614
-https://blog.csdn.net/adley_app/article/details/125523241
-https://blog.csdn.net/m0_64875238/article/details/127710832
-https://blog.csdn.net/qq_45327886/article/details/124060824
-https://blog.csdn.net/s18438610353/article/details/128497814
-https://www.cnblogs.com/workJiang/p/16787231.html
-https://blog.csdn.net/qq_42764138/article/details/126632001
-https://blog.csdn.net/achabuhecha/article/details/125083644
-https://blog.csdn.net/oTianKongLan123/article/details/112968746
-https://blog.csdn.net/qw8704149/article/details/116904888
-https://zhuanlan.zhihu.com/p/542422698
+
+<template slot-scope="{ row }">
+
+extraAttr
+
+console.dir(err)错误打印
+携带的是被请求地址Request URL的cookie，不是发起请求的地址
+
+类实现了一个接口
+<input
+                v-else
+                v-model="row[itemHeader.prop]"
+                :placeholder="itemHeader.placeholder"
+                @change="inputChange($event.target.value, row, itemHeader.prop)"
+                style="width: 100%"
+                class="el-input__inner"
+              />
+
+//获取用户喜好信息
+    getTableColumnsConfig () {
+      let params = this.userId + "/" + this.viewProp.viewId;
+      return getDTSPersonFieldConfig(params).then(res => {
+        if (res.status === 1) {
+          return res.data;
+        } else {
+          this.$message.error(res.errorMsg);
+        }
+      });
+    },
+
+https://blog.csdn.net/u010238381/article/details/84304968
+https://blog.csdn.net/qq_45947873/article/details/127588802
+https://zhuanlan.zhihu.com/p/336959935
+https://blog.csdn.net/weixin_40918067/article/details/116857684
+this.$el.querySelector(dom).scrollIntoView({
+        behavior: 'smooth'
+        })
+
+ if(!xAxis.length) {
+      option.title = {
+        text: '暂无数据',
+        left: 'center',
+        top: 'center',
+        fontSize: '35',
+      }
+    }
+
+
+<el-select
+              style="width: 155px"
+              popper-class='pointSelect'
+              collapse-tags multiple
+              v-model="stageModel"
+              @change="pointChange"
+            >
+                <el-popover
+                  placement="right"
+                  trigger="hover"
+                  v-for="(item, index) in pointInfoList" :key="index">
+                  <span v-if="!item.baselineTime">
+                    <span style="font-size:20px;font-weight: 600">{{item.mileName}}</span>
+                    <span>: 开始时间: </span>
+                    <span style="font-weight: 600;letter-spacing:1px">{{item.startDate}}</span>
+                    <span>, 结束时间: </span>
+                    <span style="font-weight: 600;letter-spacing:1px">{{item.endDate}}</span>
+                  </span>
+                  <el-option slot="reference"
+                    :label="item.mileName"
+                    :value="item.mileName">
+                  </el-option>
+                </el-popover>
+            </el-select>
+
+
+如果你需要用户通过 URI 直达某一个视图（包括子视图），那就用路由方案。
+
+8.64e7 一天的毫秒数
+$("#detail-export").off('click')
+
+staticData.js
+
+:title="versionExist()
+                                ? '请先填写版本相关信息'
+                                : ''"
+                        >
+
+@blur="(e) => {
+                  personInfoOrderd(e.target.value, field)
+                }"
+
+
+(err) => {
+  if (err && err.response && err.response.status === 401) {
+    Message.error(err.response.data)
+    return Promise.reject(err)
+  }
+  Message.error('服务器错误' + err)
+  return Promise.reject(err)
+}
