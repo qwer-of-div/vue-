@@ -1,1 +1,173 @@
 
+response.setHeader("Access-Control-Allow-Origin","*");
+
+                            
+                param = JSON.stringify(param).replace(/"/g, '&quot;')
+tableHtml += `<td><span class="link-wrap" onclick="loadDetailTable(${param})">0%</span></td>`
+
+.el-button.el-button--default.el-button--small
+ {
+    color: #000;
+}
+
+https://blog.csdn.net/pleasantsheep_/article/details/126420671
+https://devpress.csdn.net/vue/632b6aac2b9e466d077a9b7c.html
+https://blog.csdn.net/qq_45059900/article/details/124969021
+
+项目
+axios.create
+https://blog.csdn.net/qq_52423918/article/details/121655164
+https://blog.csdn.net/wangming0123/article/details/114744135
+https://blog.csdn.net/qq_26695613/article/details/126464738
+dic
+https://blog.csdn.net/sunshouyan/article/details/107020699
+import { 
+Row, Col, Menu, MenuItem, Button, Table, Pagination, Alert, Card, Steps, Tag, Loading, Input, InputNumber, Select, Dialog, Form, FormItem, Checkbox, CheckboxGroup, Tree, Tooltip, Collapse, CollapseItem, Message, Popover, DatePicker, TimePicker, RadioGroup, RadioButton, Radio, Step, Tabs, TabPane, Autocomplete, Badge, Upload, Scrollbar, Cascader, Notification, MessageBox, Drawer, Progress, Dropdown, DropdownMenu, DropdownItem
+} from 'element-ui'
+
+// 整个element-ui太大，此处按需加载
+const mudules = {
+Row, Col, Menu, MenuItem, Button, Table, Pagination, Alert, Card, Steps, Tag, Loading, Input, InputNumber, Select, Dialog, Form, FormItem, Checkbox, CheckboxGroup, Tree, Tooltip, Collapse, CollapseItem, Message, Popover, DatePicker, TimePicker, RadioGroup, RadioButton, Radio, Step, Tabs, TabPane, Autocomplete, Badge, Upload, Scrollbar, Cascader, Notification, MessageBox, Drawer, Progress, Dropdown, DropdownMenu, DropdownItem
+}
+Object.values(mudules).forEach(value => {
+  Vue.use(value)
+})
+
+assets style
+
+ this.$message.closeAll()
+
+
+
+this.$refs['table-wrap'].clearSort();
+      this.$refs['table-wrap'].sort('total','descending');
+
+
+查询
+1.保存查询参数
+2.分页一定使用之前保存的参数
+增加、修改
+1.多条修改、多条增加，是否使用列表来进行修改
+2.数据条目、数据展示、数据传参发生变化需要重新调用查询接口
+删除
+1.是否删除
+2.是否有回收站
+3.调用查询接口
+导出
+1.导出条件为查询数据之后保存的查询条件，保持页面与导出数据的一致性
+表格数据
+1.使用prop1属性展示值属性
+
+流程
+1.撤回 驳回 历史记录
+2.流程进入页面至少有两个方向 正向 反向
+3.流程中之前的参数(vuex存储)使用id请求获取
+
+
+一个接口1天--1.5天
+if (val.length === 0 && one !== 'one') {
+            option.title = {
+              x: 'center',
+              y: 'center',
+              text: '{a| ' + '}',
+              textStyle: {
+                rich: {
+                  a: {
+                    backgroundColor: {
+                      image: require('../../public/icon—noData.jpg')
+                    },
+                    height: '115',
+                    width: '10'
+                  }
+                }  
+              }
+            }
+          } else {
+            option.title = {
+              text: ''
+            }
+          }
+
+
+created () {}
+
+
+js 驼峰
+
+上下的间距由内部组件决定
+
+toggleRowExpansionALL(data, isExpand) {
+            data.forEach((item) => {
+                this.$refs.staTable.toggleRowExpansion(item, isExpand);
+                if (item.children) {
+                this.toggleRowExpansionALL(item.children, isExpand)
+                }
+            })
+        },
+
+
+导入的数据
+
+form: {
+      type: Object,
+      default: () => ({
+            tableLoading: false,
+            tableCol: [],
+            tableData: []
+      })
+    },
+
+
+{
+          prop: 'operate',
+          label: '操作',
+          width: '120',
+          formatter: (row, column, cellValue) => {
+            return <span
+              class="operation"
+              onClick={() => { this.editOpen(row) }}
+            >{this.isSuperAdmin ? "编辑" : "-"}</span>
+          }
+        }
+
+
+startDateChange(val, endTime, flag) {
+        if(!endTime) return
+      if(new Date(val).getTime() > new Date(endTime).getTime()) {
+          this.$message.warning('开始时间不能大于结束时间')
+          if (flag === 'plan') {
+            this.SEARCHFORM.planReleaseStartDate = ''
+          } else if (flag === 'true') {
+            this.SEARCHFORM.realReleaseStartDate = ''
+          }
+      }
+    },
+
+
+// api 分支申请/管理查询接口
+        async getba (type) {
+            let params = null
+            if(type === 'page') {
+                params = {...this.searchParams}
+            } else {
+                params= {...this.form,status: '0'}
+            }
+            // 只要变就会查询表格数据的参数
+            params.current = this.table.current
+            params.size = this.table.size
+            this.searchParams = this.$clone(params)
+            this.table.loading = true
+        try {
+            const res = await this.$axios.post('getba', params)
+            if (res.message === 'success') {
+                if(res.data) {
+                    this.table.data = res.data.list || []
+                    this.table.total = res.data.total
+                }
+                }
+            } catch (e) {
+                console.error(e)
+            }
+            this.table.loading = false
+        },
+
